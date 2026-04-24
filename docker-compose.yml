@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  secure-audit:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./reports:/app/reports
+    restart: unless-stopped
